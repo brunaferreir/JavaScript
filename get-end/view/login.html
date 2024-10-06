@@ -1,14 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Title</title>
-    <link rel="stylesheet" href="../css/login.css">
-    <script src="../js/login.js"></script>
-</head>
-<body>
-    Login<br/>
-    <a href="home.html">Entrar</a>
-</body>
+</html>
+    <head>
+        <title></title>
+        <script src="../script/cadastro.js"></script>    
+        <link rel="stylesheet" type="text/css" href="../css/index.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../css/login.css" media="screen" />        
+    </head>
+    <body>
+        <header>
+            <a href="../index.html">Logo</a>
+            <ul>
+                <li><a href="cadastro.html">Cadastro</li></a>
+            </ul>
+        </header>
+        <section class="form">
+            <h1 style="text-align: center;">Faça login</h1>
+            <div>
+                <form>
+                    <label for="lname">Email</label>
+                    <input type="text" id="email" name="email" placeholder="Email">
+
+                
+                    <label for="lname">password</label>
+                    <input type="password" id="password" name="password" placeholder="Password">
+                   
+                    <input type="button" value="Submit" onclick="cadastroUsuario()">
+                </form>
+            </div>
+
+        </section>
+
+    </body>
 </html>
