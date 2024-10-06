@@ -9,7 +9,7 @@ async function cadastroUsuario(){
             "email":email,
             "user_type_id":1,
             "password": "123456",
-            "cpf_cnpj": "79467834006",
+            "cpf_cnpj": "95951961009",
             "terms": 1,
             "birthday":"2000-10-12"    
         }),
