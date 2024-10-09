@@ -8,9 +8,9 @@ async function fazerLogin() {
         let api = await fetch(url, {
             method: "POST",
             body: JSON.stringify({
-                "email": email,    // Usando o valor dinâmico capturado do input
+                "email": email,
                 "password": password,
-                "user_type_id": 1   // Se precisar, ajuste esse valor conforme a lógica do seu sistema
+                "user_type_id": 1
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -19,16 +19,27 @@ async function fazerLogin() {
 
         if (api.ok) {
             let resposta = await api.json();
-            console.log(resposta);
-            return;  // Para evitar execução abaixo se o login for bem-sucedido
+            console.log("Login realizado com sucesso:", resposta);
+            return;  // Para a execução da função caso o login tenha sucesso
         } else {
-            let respostaErro = await api.json();
-            // Tente exibir toda a resposta para entender o formato do erro
-            console.log(respostaErro);  
-            alert(respostaErro.data?.errors?.email || 'Erro no login');
+            // Trata os possíveis erros de resposta
+            let errorResponse = await api.json();
+
+            // Verifica se há erros específicos na resposta e exibe uma mensagem apropriada
+            if (errorResponse.data && errorResponse.data.errors === "Usuário não está ativo") {
+                console.error("Erro: O usuário não está ativo.");
+                alert("Erro: O usuário não está ativo.");
+            } else if (errorResponse.data && errorResponse.data.errors === "Usuário não foi encontrado") {
+                console.error("Erro: O usuário não foi encontrado.");
+                alert("Erro: O usuário não foi encontrado.");
+            } else {
+                console.error("Erro desconhecido:", errorResponse.data.errors);
+                alert("Erro desconhecido: " + errorResponse.data.errors);
+            }
         }
     } catch (error) {
-        console.error('Erro ao realizar login:', error);
-        alert('Ocorreu um erro ao tentar fazer login. Tente novamente mais tarde.');
+        // Captura erros que ocorrem durante a requisição
+        console.error("Erro na execução da requisição:", error);
+        alert("Erro ao conectar ao servidor. Tente novamente mais tarde.");
     }
 }

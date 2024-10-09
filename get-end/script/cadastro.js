@@ -1,15 +1,17 @@
-const url = "https://go-wash-api.onrender.com/api/user"; 
+const cadasurl = "https://go-wash-api.onrender.com/api/user"; 
 async function cadastroUsuario(){
     let name = document.getElementById('name').value
     let email = document.getElementById('email').value
-    let api = await fetch(url,{ /* aguarde a resposta da requisição*/
+    let password = document.getElementById('password').value
+    let cpf_cnpj = document.getElementById('cpf_cnpj').value
+    let api = await fetch(cadasurl,{ /* aguarde a resposta da requisição*/
         method:"POST",
         body:JSON.stringify({  /* CONVERTER O OBJETO EM JSON*/
             "name":name,
             "email":email,
             "user_type_id":1,
-            "password": "123456",
-            "cpf_cnpj": "95951961009",
+            "password": password,
+            "cpf_cnpj": cpf_cnpj,
             "terms": 1,
             "birthday":"2000-10-12"    
         }),

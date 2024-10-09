@@ -1,29 +1,45 @@
-const url = 'https://go-wash-api.onrender.com/api/login' ;
-async function fazerLogin(){
-    let email = document.getElementById('email').value
-    let password = document.getElementById('password').value
-    let api = await fetch(url,{
-        
-        method:"POST",
-        body:JSON.stringify({
-            "email": "xxxxxx@gmail.com",
-            "password": "123456",
-            "user_type_id": 1
-        }),
+const loginurl = 'https://go-wash-api.onrender.com/api/login';
+async function fazerLogin() {
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
 
-        headers:{  /* ENVIAR UM JSON E RECEBER UM JSON */
-            'Content-Type':'application/json'
+    try {
+        let api = await fetch(loginurl, {
+            method: "POST",
+            body: JSON.stringify({
+                "email": email,
+                "password": password,
+                "user_type_id": 1
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (api.ok) {
+            let resposta = await api.json();
+            console.log("Login realizado com sucesso:", resposta);
+            return;  
+
+        } else {
+            // Trata os possíveis erros de resposta
+            let errorResponse = await api.json();
+
+            // Verifica se há erros específicos na resposta e exibe uma mensagem apropriada
+            if (errorResponse.data && errorResponse.data.errors === "Usuário não está ativo") {
+                console.error("Erro: O usuário não está ativo.");
+                alert("Erro: O usuário não está ativo.");
+            } else if (errorResponse.data && errorResponse.data.errors === "Usuário não foi encontrado") {
+                console.error("Erro: O usuário não foi encontrado.");
+                alert("Erro: O usuário não foi encontrado.");
+            } else {
+                console.error("Erro desconhecido:", errorResponse.data.errors);
+                alert("Erro desconhecido: " + errorResponse.data.errors);
+            }
         }
-    }); 
-
-    if(api.ok){
-        let resposta = await api.json();
-        console.log(resposta)
-        return  /* O PRIMEIRO RETURN ENCONTRADA NAO EXECUTA MAIS NADA ABAIXO DA FUNÇÃO */
+    } catch (error) {
+        // Captura erros que ocorrem durante a requisição
+        console.error("Erro na execução da requisição:", error);
+        alert("Erro ao conectar ao servidor. Tente novamente mais tarde.");
     }
-    let respostaErro = await api.json();
-       alert(respostaErro.data.errors.email)
-       
-
-
 }
