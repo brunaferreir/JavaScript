@@ -19,7 +19,12 @@ async function fazerLogin() {
         if (api.ok) {
             let resposta = await api.json();
             console.log("Login realizado com sucesso:", resposta);
-            return;  
+            return; 
+            
+            localStorage.setItem('user', JSON.stringify(resposta));
+
+            // Redireciona o usuário para a página Home
+            window.location.href = "home.html"; 
 
         } else {
             // Trata os possíveis erros de resposta

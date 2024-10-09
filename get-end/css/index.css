@@ -28,7 +28,7 @@ body{
     align-items: center;
     display: flex;
     justify-content: space-between;
-    background-color: brown;  
+    background-color: #1047A5;  
     grid-column: 1/4;
     padding: 10px;  
   }

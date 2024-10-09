@@ -1,13 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Title</title>
-    <link rel="stylesheet" href="../css/endereco.css">
-    <script src="../js/endereco.js"></script>
-</head>
-<body>
-    Cadastro de endereço
-</body>
 </html>
+<link rel="shortcut icon" href="img/endereco.png" type="image/x-icon">
+    <head>
+        <title></title>
+        <script src="../script/cadastro.js"></script>    
+        <link rel="stylesheet" type="text/css" href="../css/index.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../css/endereco.css" media="screen" />        
+    </head>
+    <body>
+        <header>
+            <a href="../index.html">Logo</a>
+            <ul>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </header>
+
+        <section class="form">
+            <h1 style="text-align: center;">Cadastrar endereço</h1>
+            <div>
+                <form>
+                    <label for="name">Titulo</label>
+                    <input type="text" id="name" name="name" placeholder="Titulo..">
+
+                    <label for="cep">Cep</label>
+                    <input type="text" id="cep" name="cep" placeholder="Cep">
+
+                    <label for="enderço">Endereço</label>
+                    <input type="text" id="endereço" name="endereço" placeholder="Endereço">
+
+                    <label for="numero">Numero</label>
+                    <input type="text" id="numero" name="numero" placeholder="Numero">
+
+                    <label for="completo">Complemento</label>
+                    <input type="text" id="completo" name="completo" placeholder="Completo">
+
+
+                    <input type="button" value="Submit" onclick="cadastroUsuario()">
+                </form>
+            </div>
+
+        </section>
+
+    </body>
+</html>
+
