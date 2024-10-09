@@ -1,4 +1,5 @@
 const loginurl = 'https://go-wash-api.onrender.com/api/login';
+
 async function fazerLogin() {
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
@@ -19,9 +20,10 @@ async function fazerLogin() {
         if (api.ok) {
             let resposta = await api.json();
             console.log("Login realizado com sucesso:", resposta);
-            return; 
-            
-            localStorage.setItem('user', JSON.stringify(resposta));
+          
+            // Salva a resposta no localStorage (por exemplo, token ou dados do usuário)
+            localStorage.setItem('userToken', resposta.token); // Substitua 'token' pelo campo correto na resposta
+            localStorage.setItem('userData', JSON.stringify(resposta.user)); // Caso haja dados do usuário
 
             // Redireciona o usuário para a página Home
             window.location.href = "home.html"; 

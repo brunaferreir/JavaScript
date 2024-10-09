@@ -1,45 +1,61 @@
-const url = 'https://go-wash-api.onrender.com/api/login';
+/*const cadasurl = "https://go-wash-api.onrender.com/api/user";
 
-async function fazerLogin() {
-    let email = document.getElementById('email').value;
-    let password = document.getElementById('password').value;
-
+async function cadastroUsuario() {
     try {
-        let api = await fetch(url, {
+        let name = document.getElementById('name').value;
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+        let cpf_cnpj = document.getElementById('cpf_cnpj').value;
+
+        let response = await fetch(cadasurl, {
             method: "POST",
             body: JSON.stringify({
+                "name": name,
                 "email": email,
+                "user_type_id": 1,
                 "password": password,
-                "user_type_id": 1
+                "cpf_cnpj": cpf_cnpj,
+                "terms": 1,
+                "birthday": "2000-10-12"
             }),
             headers: {
                 'Content-Type': 'application/json'
             }
         });
 
-        if (api.ok) {
-            let resposta = await api.json();
-            console.log("Login realizado com sucesso:", resposta);
-            return;  // Para a execução da função caso o login tenha sucesso
-        } else {
-            // Trata os possíveis erros de resposta
-            let errorResponse = await api.json();
-
-            // Verifica se há erros específicos na resposta e exibe uma mensagem apropriada
-            if (errorResponse.data && errorResponse.data.errors === "Usuário não está ativo") {
-                console.error("Erro: O usuário não está ativo.");
-                alert("Erro: O usuário não está ativo.");
-            } else if (errorResponse.data && errorResponse.data.errors === "Usuário não foi encontrado") {
-                console.error("Erro: O usuário não foi encontrado.");
-                alert("Erro: O usuário não foi encontrado.");
-            } else {
-                console.error("Erro desconhecido:", errorResponse.data.errors);
-                alert("Erro desconhecido: " + errorResponse.data.errors);
-            }
+        if (response.ok) {
+            let resposta = await response.json();
+            console.log(resposta);
+            alert("Usuário cadastrado com sucesso!");
+            return;
         }
+
+        let respostaErro = await response.json();
+        // Verificar se existem erros nos diferentes campos
+        let errors = respostaErro.data?.errors || {};
+        
+        if (errors.cpf_cnpj) {
+            alert("Erro no CPF/CNPJ: " + errors.cpf_cnpj);
+        }
+        
+        if (errors.email) {
+            alert("Erro no e-mail: " + errors.email);
+        }
+        
+        if (errors.password) {
+            alert("Erro na senha: " + errors.password);
+        }
+
+        if (errors.name) {
+            alert("Erro no nome: " + errors.name);
+        }
+        
+        if (!errors.cpf_cnpj && !errors.email && !errors.password && !errors.name) {
+            alert("Erro desconhecido ao realizar o cadastro.");
+        }
+
     } catch (error) {
-        // Captura erros que ocorrem durante a requisição
-        console.error("Erro na execução da requisição:", error);
-        alert("Erro ao conectar ao servidor. Tente novamente mais tarde.");
+        console.error('Erro:', error);
+        alert('Erro ao realizar o cadastro. Tente novamente mais tarde.');
     }
-}
+}*/
