@@ -29,7 +29,7 @@ async function cadastroEndereco() {
             console.log(resposta);
             alert("Endereço cadastrado com sucesso!");
         } else {
-            // Captura o erro quando a resposta não for ok (status diferente de 200-299)
+           
             let respostaErro = await response.json();
             console.error('Erro no cadastro:', respostaErro);
             alert('Erro ao cadastrar o endereço: ' + (respostaErro.message || 'Tente novamente.'));

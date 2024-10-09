@@ -1,15 +1,15 @@
 const cadasurl = "https://go-wash-api.onrender.com/api/user";
 
-async function cadastroUsuario() {
+async function cadastroUsuario() {  
     try {
-        let name = document.getElementById('name').value;
+        let name = document.getElementById('name').value; 
         let email = document.getElementById('email').value;
         let password = document.getElementById('password').value;
         let cpf_cnpj = document.getElementById('cpf_cnpj').value;
 
         let response = await fetch(cadasurl, {
             method: "POST",
-            body: JSON.stringify({
+            body: JSON.stringify({   
                 "name": name,
                 "email": email,
                 "user_type_id": 1,
@@ -18,22 +18,22 @@ async function cadastroUsuario() {
                 "terms": 1,
                 "birthday": "2000-10-12"
             }),
-            headers: {
+            headers: {  
                 'Content-Type': 'application/json'
             }
         });
 
-        if (response.ok) {
+        if (response.ok) { 
             let resposta = await response.json();
             console.log(resposta);
             alert("Usuário cadastrado com sucesso!");
-            return;
+            return; 
         }
 
         let respostaErro = await response.json();
-        // Verificar se existem erros nos diferentes campos
+       
         let errors = respostaErro.data?.errors || {};
-        
+
         if (errors.cpf_cnpj) {
             alert("Erro no CPF/CNPJ: " + errors.cpf_cnpj);
         }
@@ -51,7 +51,7 @@ async function cadastroUsuario() {
         }
         
         if (!errors.cpf_cnpj && !errors.email && !errors.password && !errors.name) {
-            alert("Erro desconhecido ao realizar o cadastro.");
+            alert("Erro desconhecido ao realizar o cadastro."); 
         }
 
     } catch (error) {
