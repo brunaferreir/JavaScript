@@ -20,6 +20,7 @@ async function cadastroUsuario() {
             }),
             headers: {  
                 'Content-Type': 'application/json'
+    
             }
         });
 
@@ -59,3 +60,5 @@ async function cadastroUsuario() {
         alert('Erro ao realizar o cadastro. Tente novamente mais tarde.');
     }
 }
+
+

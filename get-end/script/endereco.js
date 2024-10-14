@@ -8,6 +8,9 @@ async function cadastroEndereco() {
         let number = document.getElementById('number').value;
         let complement = document.getElementById('complement').value;
 
+            
+        let token  = JSON.parse(localStorage.getItem('userData')).access_token;
+
         let response = await fetch(url, {
             method: "POST",
             body: JSON.stringify({  
@@ -20,14 +23,21 @@ async function cadastroEndereco() {
             }),
             headers: { 
                 'Content-Type': 'application/json',  
-                'Authorization': 'Bearer <eyJ0eXAiOiJKV1QiLCJhbGciOizdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.z1pdEBkx8Hq01B7jNKa42NGxtFFHwb-7O_0y8krVWUY>'
+                'Authorization' : "Bearer" + token
             }
         });
+
+
+        //let token = json.(localStorage.getItem())
 
         if (response.ok) {
             let resposta = await response.json();
             console.log(resposta);
             alert("Endereço cadastrado com sucesso!");
+
+            window.location.href = "home.html";
+
+            return;
         } else {
            
             let respostaErro = await response.json();

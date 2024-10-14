@@ -19,10 +19,9 @@ async function fazerLogin() {
 
         if (api.ok) {
             let resposta = await api.json();
-            console.log("Login realizado com sucesso:", resposta);
-         
-            localStorage.setItem('userToken', resposta.token); 
-            localStorage.setItem('userData', JSON.stringify(resposta.user));
+            alert("Login realizado com sucesso:");
+    
+            localStorage.setItem('userData', JSON.stringify(resposta));
 
         
             window.location.href = "home.html"; 
@@ -31,15 +30,8 @@ async function fazerLogin() {
        
             let errorResponse = await api.json();
 
-            if (errorResponse.data && errorResponse.data.errors === "Usuário não está ativo") {
-                console.error("Erro: O usuário não está ativo.");
-                alert("Erro: O usuário não está ativo.");
-            } else if (errorResponse.data && errorResponse.data.errors === "Usuário não foi encontrado") {
-                console.error("Erro: O usuário não foi encontrado.");
-                alert("Erro: O usuário não foi encontrado.");
-            } else {
-                console.error("Erro desconhecido:", errorResponse.data.errors);
-                alert("Erro desconhecido: " + errorResponse.data.errors);
+            if (errorResponse.data && errorResponse.data.errors) {
+                alert(errorResponse.data.errors);
             }
         }
     } catch (error) {
