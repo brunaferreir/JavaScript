@@ -1,0 +1,39 @@
+body{
+    background-color: white;
+    color: black;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr ;
+    margin: 0 auto;
+    max-width: 500px;        
+    grid-gap: 20px;  
+        
+}
+a{
+    background-color: white;
+    border: none;
+    color: #BA3942;
+    font-family: 'Franklin Gothic Medium';
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px; 
+   
+}
+
+  
+input[type=button] {
+    width: 100%;
+    background-color: #BA3942;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+  
+
+  
+  

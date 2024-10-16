@@ -1,0 +1,80 @@
+body{
+    background-color: white;
+    color: #4d3234;
+    font-family: 'Franklin Gothic Medium';
+    background-image: url(../view/img/kit.jpeg);
+  
+ }
+
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr ;
+    margin: 0 auto;
+    max-width: 500px;        
+    grid-gap: 20px;  
+        
+}
+
+div{
+    background-color: #F5F2F0;
+    width: 500px;
+    height: 300px;    
+    border-radius: 50px;
+    position: relative;
+    top: 30%;
+    left: 200px;    
+    padding: 50px;
+    
+   
+} 
+    
+
+
+a{
+    background-color: white;
+    border: none;
+    color: #BA3942;
+    font-family: 'Franklin Gothic Medium';
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px; 
+   
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;    
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    
+}
+input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;    
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    
+}
+  
+input[type=button] {
+    width: 100%;
+    background-color: #BA3942;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+footer{
+    height: 100px;
+}
+
+
+
+  
+  

@@ -1,0 +1,75 @@
+body{
+    background-color: white;
+    color: white;
+    background-image: url(../view/img/kittycadastro.png);
+   
+}
+
+form { 
+    background-color: #F5F2F0;
+    color: black;
+    position:  absolute;
+    width: 400px;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 15px;
+        
+}
+
+a{
+    background-color: white;
+    border: none;
+    color: #BA3942;
+    font-family: 'Franklin Gothic Medium';
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px; 
+   
+}
+
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;    
+    border: none;
+    border-radius: 15px;
+    
+}
+
+input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;    
+    border: none;
+    border-radius: 15px;
+    
+}
+
+input[type=date], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;    
+    border: none;
+    border-radius: 15px;}
+
+input[type=button] {
+    width: 100%;
+    background-color: #BA3942;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+  
+
+  
+
+  
