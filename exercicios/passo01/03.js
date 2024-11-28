@@ -7,6 +7,6 @@
 const nome = "Ben"
 const salario = 1850.45
 
-console.log(nome)
-console.log(salario)
-console.log("O funcionário", nome,"do Carmo tem um salário de R$",salario ," em Junho.")
+console.log("Nome do Funcionário:",nome)
+console.log("Salário: ",salario)
+console.log("O funcionário", nome," tem um salário de R$",salario ," em Junho.")

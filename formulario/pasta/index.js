@@ -14,7 +14,8 @@ function getWeather() { //serve para buscar e exibir informações meteorológic
 //method: Definido como "GET" porque estamos recuperando dados.
 
     const requestOptions = {
-        method: "GET"
+        method: "GET",
+        redirect: "follow"
         
     };
 
